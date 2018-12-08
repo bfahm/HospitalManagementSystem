@@ -67,7 +67,7 @@ NOTE: 	All IDs in the database are automatically generated, the database is supp
 	Nurses   		IDs start with 3xxxxxxx		entity_name: Ent_Nurse 
 	Wardboys 		IDs start with 4xxxxxxx		entity_name: Ent_Wardboy 
 	Room     		IDs start with 5xxxxxxx		entity_name: Hos_Room 
-	Departments IDs start with 6xxxxxxx		entity_name: Hos_Departments
+	Departments 		IDs start with 6xxxxxxx		entity_name: Hos_Departments
 
 To Search for an ID for a specific Entity:
 
