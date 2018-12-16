@@ -18,6 +18,8 @@
  - Just place the folder in a suitable place on your hard disk and open the solution using the `.sln` file. Then run the *Debugger* on Visual Studio 2017.
  - This will initialize the solution with the needed packages if they are installed.
 
+##### Introductory Youtube Video: https://youtu.be/ww1DwIGYCaw
+
 ##### ER Model for the database:
 
 ![ERD Model](https://i.imgur.com/mMz6e2S.png)
