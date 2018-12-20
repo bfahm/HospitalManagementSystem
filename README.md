@@ -20,7 +20,7 @@
 
 ##### Introductory Youtube Video: https://youtu.be/ww1DwIGYCaw
 
-<img src="https://serving.photos.photobox.com/7050641279a4473c91fd1c99fdbfce4b6e7dd2f3088c14b8cbcd011a563ecb9bec933fc9.jpg" width="425"/> <img src="https://i.imgur.com/hl1PKLc.png" width="425"/> 
+<img src="https://serving.photos.photobox.com/7050641279a4473c91fd1c99fdbfce4b6e7dd2f3088c14b8cbcd011a563ecb9bec933fc9.jpg" width="425"/>
 <img src="https://ultraimg.com/images/2018/12/20/Pypo.png" alt="Pypo.png" border="0" width="425">
 <img src="https://ultraimg.com/images/2018/12/20/Pypm.png" alt="Pypm.png" border="0" width="425">
 <img src="https://ultraimg.com/images/2018/12/20/Pyp1.png" alt="Pyp1.png" border="0" width="425">
