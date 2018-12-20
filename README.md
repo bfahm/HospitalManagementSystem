@@ -20,21 +20,21 @@
 
 ##### Introductory Youtube Video: https://youtu.be/ww1DwIGYCaw
 
-<img src="https://serving.photos.photobox.com/7050641279a4473c91fd1c99fdbfce4b6e7dd2f3088c14b8cbcd011a563ecb9bec933fc9.jpg" width="425"/>
-<img src="https://ultraimg.com/images/2018/12/20/Pypo.png" alt="Pypo.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/Pypm.png" alt="Pypm.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/Pyp1.png" alt="Pyp1.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/Pypg.png" alt="Pypg.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/Pypx.png" alt="Pypx.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/PypV.png" alt="PypV.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/Pyp0.png" alt="Pyp0.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/PypG.png" alt="PypG.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/PypY.png" alt="PypY.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/Pypn.png" alt="Pypn.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/Pypv.png" alt="Pypv.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/PypO.png" alt="PypO.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/PypP.png" alt="PypP.png" border="0" width="425">
-<img src="https://ultraimg.com/images/2018/12/20/PypZ.png" alt="PypZ.png" border="0" width="425">
+<img src="https://serving.photos.photobox.com/7050641279a4473c91fd1c99fdbfce4b6e7dd2f3088c14b8cbcd011a563ecb9bec933fc9.jpg" width="350"/>
+<img src="https://ultraimg.com/images/2018/12/20/Pypo.png" alt="Pypo.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/Pypm.png" alt="Pypm.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/Pyp1.png" alt="Pyp1.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/Pypg.png" alt="Pypg.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/Pypx.png" alt="Pypx.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/PypV.png" alt="PypV.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/Pyp0.png" alt="Pyp0.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/PypG.png" alt="PypG.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/PypY.png" alt="PypY.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/Pypn.png" alt="Pypn.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/Pypv.png" alt="Pypv.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/PypO.png" alt="PypO.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/PypP.png" alt="PypP.png" border="0" width="350">
+<img src="https://ultraimg.com/images/2018/12/20/PypZ.png" alt="PypZ.png" border="0" width="350">
 
 ##### ER Model for the database:
 
