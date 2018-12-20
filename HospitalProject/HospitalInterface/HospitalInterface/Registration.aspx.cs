@@ -11,6 +11,7 @@ namespace HospitalInterface
     public partial class Registeration : Page
     {
         SqlConnection conn = new SqlConnection("data source=DESKTOP-41PN3EM\\TESTINSTANCE; database=HospitalMS; integrated security=SSPI");
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -52,17 +53,11 @@ namespace HospitalInterface
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
-            if (reader.HasRows)
-            {
-                int index = 0;
-                while (reader.Read())
-                {
-                    ListItem toBeAdded = new ListItem(reader.GetString(0), index.ToString());
-                    DropDownList2.Items.Add(toBeAdded);
-                    index++;
-                }
-            }
-            reader.Close();
+            DropDownList2.DataSource = reader;
+            DropDownList2.DataTextField = "DepName";
+            DropDownList2.DataValueField = "DepName";
+            DropDownList2.DataBind();
+
             conn.Close();
         }
 
@@ -223,17 +218,10 @@ namespace HospitalInterface
             SqlCommand cmd = new SqlCommand("SELECT RmId FROM Hos_Room", conn);
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                int index = 0;
-                while (reader.Read())
-                {
-                    ListItem toBeAdded = new ListItem(reader.GetInt32(0).ToString(), index.ToString());
-                    DropDownList4.Items.Add(toBeAdded);
-                    index++;
-                }
-            }
+            DropDownList4.DataSource = reader;
+            DropDownList4.DataTextField = "RmId";
+            DropDownList4.DataValueField = "RmId";
+            DropDownList4.DataBind();
             reader.Close();
             conn.Close();
         }

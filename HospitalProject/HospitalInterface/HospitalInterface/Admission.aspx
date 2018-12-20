@@ -16,8 +16,8 @@
         PLEASE SELECT THE ROOM TYPE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList2" runat="server" Height="36px" Width="170px">
             <asp:ListItem>(1)Ward Room</asp:ListItem>
-            <asp:ListItem>(2)Operation Room</asp:ListItem>
-            <asp:ListItem>(3)ICU</asp:ListItem>
+            <asp:ListItem>(3)Operation Room</asp:ListItem>
+            <asp:ListItem>(2)ICU</asp:ListItem>
         </asp:DropDownList>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -40,7 +40,7 @@
             <SortedDescendingCellStyle BackColor="#E5E5E5" />
             <SortedDescendingHeaderStyle BackColor="#242121" />
         </asp:GridView>
-        <br />Write Patient ID:       Write Patient ID:<asp:TextBox ID="TextBox2" runat="server" Width="143px" placeholder="Enter Patient ID"></asp:TextBox>
+        <br />Write Patient ID:<asp:TextBox ID="TextBox2" runat="server" Width="143px" placeholder="Enter Patient ID"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Choose A room:
                 <asp:DropDownList ID="DropDownList3" runat="server" Width="143px">
                 </asp:DropDownList>

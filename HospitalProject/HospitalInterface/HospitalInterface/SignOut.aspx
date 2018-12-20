@@ -95,7 +95,7 @@
         </p>
         <br />
         <br />
-        <asp:Button ID="Button2" runat="server" Text="Disadmit Patient" OnClick="Button2_Click"
+        <asp:Button ID="Button2" runat="server" Text="Discharge Patient" OnClick="Button2_Click"
             OnClientClick="return confirm('Are you sure you want to remove patient from serving tables?')" />
         <br />
 

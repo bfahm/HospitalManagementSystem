@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using System.Data.SqlClient;
 
 namespace HospitalInterface
 {
@@ -53,9 +52,15 @@ namespace HospitalInterface
             conn.Close();
 
             int log = Int32.Parse(outputParameter.Value.ToString());
-            if(log == 0)
+            if (log == 0)
             {
+                logText.Visible = true;
                 logText.InnerText = "No patients found with these criteria..";
+            }
+            else
+            {
+                logText.Visible = false;
+                logText.InnerText = "";
             }
 
             

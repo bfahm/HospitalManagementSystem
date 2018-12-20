@@ -42,6 +42,8 @@ namespace HospitalInterface
                 autoShowData.InnerText = "Username: " + username;
                 autoShowData.InnerText += "\n";
                 autoShowData.InnerText += "Assigned Department: " + depName;
+                autoShowData.InnerText += "\n";
+                autoShowData.InnerText += "Main Job: " + "Doctor";
 
                 SqlCommand cmd = new SqlCommand("SELECT Pname, Pnumber, Pdisease, PdayIn, Treatment" +
                                             " FROM Ent_Patient " +
@@ -82,6 +84,8 @@ namespace HospitalInterface
                 autoShowData.InnerText = "Username: " + username;
                 autoShowData.InnerText += "\n";
                 autoShowData.InnerText += "Assigned Department: " + depName;
+                autoShowData.InnerText += "\n";
+                autoShowData.InnerText += "Main Job: " + "Nurse";
 
                 SqlCommand cmd = new SqlCommand("SELECT Pname, Pnumber, Pdisease, PdayIn" +
                                             " FROM Ent_Patient " +

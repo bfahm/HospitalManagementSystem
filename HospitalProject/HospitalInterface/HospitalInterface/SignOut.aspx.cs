@@ -249,11 +249,11 @@ namespace HospitalInterface
                 ResetData(0);
                 ResetData(1);
                 ResetData(2);
-                logText.InnerText = "Patient Succefully Dis Admitted From the Hospital Database";
+                logText.InnerText = "Patient Succefully Discharged From the Hospital Database";
             }
             catch
             {
-                logText.InnerText = "Something went wrong while disadmitting this patient, refer to Admin Panel to fix this issue.";
+                logText.InnerText = "Something went wrong while discharging this patient, refer to Admin Panel to fix this issue.";
             }
         }
     }
