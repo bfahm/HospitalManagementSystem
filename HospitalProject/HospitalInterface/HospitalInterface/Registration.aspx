@@ -28,7 +28,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Department:&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList2" runat="server" Height="35px" Width="218px">
+        <asp:DropDownList ID="DropDownList2" runat="server" Height="35px" Width="218px" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
         </asp:DropDownList>
 
         <br />

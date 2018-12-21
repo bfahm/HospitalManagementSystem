@@ -15,6 +15,11 @@ namespace HospitalInterface
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
             int chosenForm = 0;
             chosenForm = DropDownList1.SelectedIndex;
             switch (chosenForm)
@@ -36,8 +41,10 @@ namespace HospitalInterface
                 case 4:
                     break;
             }
-
+            logText.InnerText = "";
         }
+
+
         ////////////////////////////////////Doctor Selection////////////////////////////////
 
         protected void onDoctorNurseSelection()
@@ -47,26 +54,37 @@ namespace HospitalInterface
             Ward.Visible = false;
 
             // first inflate the latest department ids to choose from
-
             
-            SqlCommand cmd = new SqlCommand("SELECT DepName FROM Hos_Departments", conn);
+            SqlCommand cmd = new SqlCommand("SELECT DepId, DepName FROM Hos_Departments", conn);
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
             DropDownList2.DataSource = reader;
             DropDownList2.DataTextField = "DepName";
-            DropDownList2.DataValueField = "DepName";
+            DropDownList2.DataValueField = "DepId";
             DropDownList2.DataBind();
 
             conn.Close();
+            
         }
+
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //for testing purposes only.
+            System.Diagnostics.Debug.Print("Inndex is: " + DropDownList2.SelectedIndex);
+            System.Diagnostics.Debug.Print("Value of: " + DropDownList2.SelectedValue);
+            System.Diagnostics.Debug.Print("Item is: " + DropDownList2.SelectedItem);
+        }
+
+
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             //button that submits a new doctor
 
             string username = TextBox1.Text.ToString();
-            int departmentId = DropDownList2.SelectedIndex + 6000000;
+            int departmentId = Int32.Parse(DropDownList2.SelectedValue);
+            System.Diagnostics.Debug.Print("Actual Added ID was" + departmentId);
             int selectedOption = RadioButtonList1.SelectedIndex;
 
             if (username.Length == 0)
@@ -123,7 +141,7 @@ namespace HospitalInterface
             }
 
             TextBox1.Text = "";
-            DropDownList2.SelectedIndex = 0;
+            //DropDownList2.SelectedIndex = 0;
 
 
         }
@@ -275,15 +293,14 @@ namespace HospitalInterface
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            logText.InnerText = "";
-        }
+        
 
         protected void Button5_Click(object sender, EventArgs e)
         {
             Server.Transfer("Admission.aspx");
             //Response.Redirect("Admission.aspx");
         }
+
+        
     }
 }
