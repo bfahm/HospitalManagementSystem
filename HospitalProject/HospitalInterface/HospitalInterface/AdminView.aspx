@@ -10,13 +10,13 @@
             <span class="loginText">Username:&nbsp;&nbsp;
             </span>
 
-            <asp:TextBox ID="TextBox1" runat="server" Width="290px" placeholder="Patient ID"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" Width="290px" placeholder="Admin Username"></asp:TextBox>
             <br />
             <br />
             <span class="loginText">Password:&nbsp;&nbsp;
             </span>
 
-            <asp:TextBox ID="TextBox2" runat="server" Width="290px" placeholder="Patient Name" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server" Width="290px" placeholder="Admin Password" TextMode="Password"></asp:TextBox>
             &nbsp;<br />
             <br />
             <br />

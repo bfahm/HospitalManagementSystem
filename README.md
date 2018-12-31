@@ -32,7 +32,7 @@
 <img src="https://ultraimg.com/images/2018/12/20/PypY.png" alt="PypY.png" border="0" >
 <img src="https://ultraimg.com/images/2018/12/20/Pypn.png" alt="Pypn.png" border="0" >
 <img src="https://ultraimg.com/images/2018/12/20/Pypv.png" alt="Pypv.png" border="0" >
-<img src="https://ultraimg.com/images/2018/12/20/PypO.png" alt="PypO.png" border="0" >
+<img src="https://i.imgur.com/wXLiGnK.png" alt="PypO.png" border="0" >
 <img src="https://ultraimg.com/images/2018/12/20/PypP.png" alt="PypP.png" border="0" >
 <img src="https://ultraimg.com/images/2018/12/20/PypZ.png" alt="PypZ.png" border="0" >
 
