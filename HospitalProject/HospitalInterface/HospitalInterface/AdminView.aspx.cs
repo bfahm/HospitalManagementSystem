@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace HospitalInterface
 {
@@ -18,7 +19,9 @@ namespace HospitalInterface
             if (!IsPostBack) { 
                 divData.Visible = false;
                 GridView1.Visible = false;
+                
             }
+            
         }
 
         private void ViewTable()
@@ -66,9 +69,7 @@ namespace HospitalInterface
             conn.Close();
         }
 
-
-
-        protected void Btn_Login(object sender, EventArgs e)
+        protected void Button_Login(object sender, EventArgs e)
         {
             string username = TextBox1.Text.ToString();
             string password = TextBox2.Text.ToString();
@@ -82,30 +83,95 @@ namespace HospitalInterface
                 logDataForLogin.InnerText = "";
                 divCred.Visible = false;
                 divData.Visible = true;
-                Button4.Visible = true;
+                ButtonSignout.Visible = true;
+                InflateTableDropDowns();
+                divCustomQueries.Visible = true;
             }
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void InflateTableDropDowns()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT TABLE_NAME " +
+                                            "FROM HospitalMS.INFORMATION_SCHEMA.TABLES " +
+                                            "WHERE TABLE_TYPE = 'Base Table'", conn);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(reader);
+
+            DropDownSelectTableUpdate.DataSource = table;
+            DropDownSelectTableUpdate.DataTextField = "TABLE_NAME";
+            DropDownSelectTableUpdate.DataValueField = "TABLE_NAME";
+            DropDownSelectTableUpdate.DataBind();
+
+            DropDownSelectTableDelete.DataSource = table;
+            DropDownSelectTableDelete.DataTextField = "TABLE_NAME";
+            DropDownSelectTableDelete.DataValueField = "TABLE_NAME";
+            DropDownSelectTableDelete.DataBind();
+            conn.Close();
+
+            string str = DropDownSelectTableUpdate.SelectedValue.ToString();
+            InflateColumnDropDowns(str, 0); //Initial Value for Update Queries - Table initial Inflate
+            InflateColumnDropDowns(str, 1); //Initial Value for Delete Queries - Table initial Inflate
+        }
+
+        protected void InflateColumnDropDowns(string tblName, int updateOrDelete)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT COLUMN_NAME  " +
+                                            "FROM HospitalMS.INFORMATION_SCHEMA.COLUMNS " +
+                                            "WHERE TABLE_NAME = '"+tblName+"'", conn);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            
+            if (updateOrDelete == 0)
+            {
+                DataTable table = new DataTable();
+                table.Load(reader);
+
+                DropDownListSelectWhereColumnUpdate.DataSource = table;
+                DropDownListSelectWhereColumnUpdate.DataTextField = "COLUMN_NAME";
+                DropDownListSelectWhereColumnUpdate.DataValueField = "COLUMN_NAME";
+                DropDownListSelectWhereColumnUpdate.DataBind();
+
+                DropDownSelectSetColumn.DataSource = table;
+                DropDownSelectSetColumn.DataTextField = "COLUMN_NAME";
+                DropDownSelectSetColumn.DataValueField = "COLUMN_NAME";
+                DropDownSelectSetColumn.DataBind();
+
+                conn.Close();
+            }
+            else if(updateOrDelete == 1)
+            {
+                DropDownListSelectWhereColumnDelete.DataSource = reader;
+                DropDownListSelectWhereColumnDelete.DataTextField = "COLUMN_NAME";
+                DropDownListSelectWhereColumnDelete.DataValueField = "COLUMN_NAME";
+                DropDownListSelectWhereColumnDelete.DataBind();
+                conn.Close();
+            }
+            
+        }
+
+        protected void Button_GotoSearch(object sender, EventArgs e)
         {
             Server.Transfer("Search.aspx");
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button_ViewTable(object sender, EventArgs e)
         {
             ViewTable();
         }
 
-        protected void Button4_Click(object sender, EventArgs e)
+        protected void Button_SignOut(object sender, EventArgs e)
         {
             divData.Visible = false;
             GridView1.Visible = false;
             divCred.Visible = true;
-            Button4.Visible = false;
+            ButtonSignout.Visible = false;
             TextBox1.Text = "";
+            divCustomQueries.Visible = false;
         }
 
-        protected void Button5_Click(object sender, EventArgs e)
+        protected void Button_CheckTrans(object sender, EventArgs e)
         {
             
             SqlCommand cmd = new SqlCommand("DBCC OPENTRAN WITH TABLERESULTS", conn);
@@ -115,7 +181,7 @@ namespace HospitalInterface
             if (reader.Read())
             {
                 transactionsLog.InnerText = "Running transaction at " + reader[1].ToString();
-                Button6.Enabled = true;
+                ButtonKillTrans.Enabled = true;
                 //ssid = Int32.Parse(reader[1].ToString());
             }
             else
@@ -126,7 +192,7 @@ namespace HospitalInterface
             conn.Close();
         }
 
-        protected void Button6_Click(object sender, EventArgs e)
+        protected void Button_KillTrans(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand("DBCC OPENTRAN WITH TABLERESULTS", conn);
 
@@ -136,7 +202,7 @@ namespace HospitalInterface
             if (reader.Read())
             {
                 transactionsLog.InnerText = "Running transaction at " + reader[1].ToString();
-                Button6.Enabled = true;
+                ButtonKillTrans.Enabled = true;
                 int ssid = Int32.Parse(reader[1].ToString());
 
                 reader.Close();
@@ -147,11 +213,100 @@ namespace HospitalInterface
                 transactionsLog.InnerText = "Killed Transaction at: " + ssid;
             }
 
-            Button6.Enabled = false;
+            ButtonKillTrans.Enabled = false;
 
             conn.Close();
 
             
+        }
+
+        protected void DropDownSelectTableUpdate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = DropDownSelectTableUpdate.SelectedValue.ToString();
+            InflateColumnDropDowns(str, 0);
+        }
+
+        protected void DropDownSelectTableDelete_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = DropDownSelectTableDelete.SelectedValue.ToString();
+            InflateColumnDropDowns(str, 1);
+        }
+
+        protected void ButtonExecUpdate_Click(object sender, EventArgs e)
+        {
+            string chosenTable = DropDownSelectTableUpdate.SelectedValue.ToString();
+            string chosenSetColumn = DropDownSelectSetColumn.SelectedValue.ToString();
+            string chosenWhereColumn = DropDownListSelectWhereColumnUpdate.SelectedValue.ToString();
+
+            if (TextBoxUpdateSet.Text != String.Empty && TextBoxUpdateWhere.Text != String.Empty)
+            {
+                string inputSet = TextBoxUpdateSet.Text.ToString();
+                string inputWhere = TextBoxUpdateWhere.Text.ToString();
+
+                SqlCommand cmd = new SqlCommand("Update " + chosenTable + 
+                                                " Set " + chosenSetColumn + " = "+ inputSet +
+                                                " Where "+ chosenWhereColumn + " = " + inputWhere, conn);
+                try
+                {
+                    conn.Open();
+                    int result = cmd.ExecuteNonQuery();
+                    conn.Close();
+                    if (result == -1 || result == 0)
+                    {
+                        LogUpdate.InnerText = "No rows where updated.";
+                    }
+                    else
+                    {
+                        LogUpdate.InnerText = "Succeful Attempt, Check The table you update to make sure changes occured.";
+                        ViewTable();        //refresh table after changes
+                    }
+                }
+                catch
+                {
+                    LogUpdate.InnerText = "An SQL Error Occured, be sure to surround strings with 'singleQuotes' ";
+                }
+            }
+            else
+            {
+                LogUpdate.InnerText = "All Fields are required.";
+            }
+        }
+
+        protected void ButtonExecDelete_Click(object sender, EventArgs e)
+        {
+            string chosenTable = DropDownSelectTableDelete.SelectedValue.ToString();
+            string chosenWhereColumn = DropDownListSelectWhereColumnDelete.SelectedValue.ToString();
+
+            if (TextBoxDeleteWhere.Text != String.Empty)
+            {
+                string inputWhere = TextBoxDeleteWhere.Text.ToString();
+
+                SqlCommand cmd = new SqlCommand("Delete From " + chosenTable +
+                                                " Where " + chosenWhereColumn + " = " + inputWhere, conn);
+                try
+                {
+                    conn.Open();
+                    int result = cmd.ExecuteNonQuery();
+                    conn.Close();
+                    if (result == -1 || result == 0)
+                    {
+                        LogDelete.InnerText = "No rows where deleted.";
+                    }
+                    else
+                    {
+                        LogDelete.InnerText = "Succeful Attempt, Check The table you update to make sure changes occured.";
+                        ViewTable();        //refresh table after changes
+                    }
+                }
+                catch
+                {
+                    LogDelete.InnerText = "Could not delete this row because it is currently is use in another relation.";
+                }
+            }
+            else
+            {
+                LogDelete.InnerText = "All Fields are required.";
+            }
         }
     }
 }

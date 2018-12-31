@@ -22,6 +22,7 @@ namespace HospitalInterface
         {
            
         }
+
         protected void processDoctorsandNurses(int docOrNurse)
         {
             DoctorNurse.Visible = true;
@@ -151,20 +152,20 @@ namespace HospitalInterface
             autoShowData.Visible = false;
             return Tuple.Create(" ", -1); ;
         }
+
         protected void processPatients()
         {
             //show the div
             DoctorNurse.Visible = false;
             //hide another divs
         }
+
         protected void processAdmins()
         {
             //show the div
             DoctorNurse.Visible = false;
             //hide another divs
         }
-
-       
 
         protected void Button1_Click(object sender, EventArgs e)
         {

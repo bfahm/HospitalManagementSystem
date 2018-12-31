@@ -84,7 +84,6 @@ namespace HospitalInterface
 
             string username = TextBox1.Text.ToString();
             int departmentId = Int32.Parse(DropDownList2.SelectedValue);
-            System.Diagnostics.Debug.Print("Actual Added ID was" + departmentId);
             int selectedOption = RadioButtonList1.SelectedIndex;
 
             if (username.Length == 0)
